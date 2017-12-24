@@ -6,13 +6,17 @@ RUN apt-get update \
     python-pip \
     texlive \
     texlive-xetex \
+    texlive-full \
     latexmk \
     ttf-wqy-microhei \
-    git
+    git \
+    pandoc
+
 COPY requirement.txt /
 RUN pip install -r requirement.txt
 
 RUN mkdir documents
 WORKDIR /documents
 VOLUME /documents
+
 ENTRYPOINT ["/bin/sh", "-c"]
